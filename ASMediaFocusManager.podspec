@@ -4,10 +4,11 @@ Pod::Spec.new do |s|
   s.license = 'MIT'
   s.summary = "Animate your iOS image views to fullscreen on a simple tap."
   s.authors = { "Philippe Converset" => "pconverset@autresphere.com" }
-  s.homepage = "https://github.com/autresphere/ASMediaFocusManager"
-  s.source = { :git => "https://github.com/autresphere/ASMediaFocusManager.git", :tag => "0.1" }
+  s.homepage = "https://github.com/victorwon/ASMediaFocusManager"
+  s.source = { :git => "https://github.com/victorwon/ASMediaFocusManager.git", :tag => "0.1" }
   s.platform = :ios, '6.0'
   s.source_files = 'ASMediaFocusManager/*'
+  s.resource = 'ASMediaFocusManager/ASMediaFocusController.xib'
   s.frameworks = 'UIKit', 'Foundation', 'CoreGraphics'
   s.requires_arc = true
 end
