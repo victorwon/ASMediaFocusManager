@@ -180,7 +180,7 @@
         minScale = maxScale;
     }
         
-    self.maximumZoomScale = maxScale;
+    self.maximumZoomScale = maxScale*2; // allow extra zoom
     self.minimumZoomScale = minScale;
 }
 
