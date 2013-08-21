@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    FinalZoomTypeOrigin = 0,
+    FinalZoomTypeAspectFit,
+    FinalZoomTypeAspectFill
+} FinalZoomType;
+
 @class ASMediaFocusManager;
 
 @protocol ASMediasFocusDelegate <NSObject>
@@ -41,6 +47,7 @@
 @property (nonatomic, assign) BOOL gestureDisabledDuringZooming;
 
 @property (nonatomic) BOOL isDefocusingWithTap;
+@property (nonatomic) FinalZoomType finalZoomType;
 
 - (void)installOnViews:(NSArray *)views;
 - (void)installOnView:(UIView *)view;

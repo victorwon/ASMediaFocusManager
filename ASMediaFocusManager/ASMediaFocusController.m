@@ -167,9 +167,10 @@ static NSTimeInterval const kDefaultOrientationAnimationDuration = 0.4;
     
     scrollView = [[ASImageScrollView alloc] initWithFrame:self.contentView.bounds];
     scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    self.scrollView = scrollView;
+    self.scrollView = scrollView;    
     [self.contentView insertSubview:scrollView atIndex:0];
     [scrollView displayImage:self.mainImageView.image];
+    
     self.mainImageView.hidden = YES;
 }
 

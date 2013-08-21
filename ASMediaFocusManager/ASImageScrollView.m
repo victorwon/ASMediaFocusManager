@@ -154,7 +154,7 @@
     _imageSize = imageSize;
     self.contentSize = imageSize;
     [self setMaxMinZoomScalesForCurrentBounds];
-    self.zoomScale = self.minimumZoomScale;
+//    self.zoomScale = self.minimumZoomScale;
 }
 
 - (void)setMaxMinZoomScalesForCurrentBounds

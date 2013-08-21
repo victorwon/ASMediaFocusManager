@@ -157,6 +157,23 @@ static CGFloat const kAnimationDuration = 0.5;
     if(self.zoomEnabled)
     {
         [self.focusViewController installZoomView];
+        
+        float scaleX = self.focusViewController.mainImageView.frame.size.width/self.focusViewController.mainImageView.image.size.width;
+        float scaleY = self.focusViewController.mainImageView.frame.size.height/self.focusViewController.mainImageView.image.size.height;
+        switch (self.finalZoomType) {
+            case FinalZoomTypeAspectFit:
+                self.focusViewController.scrollView.zoomScale = MIN(scaleX, scaleY);
+                break;
+                
+            case FinalZoomTypeAspectFill:
+                self.focusViewController.scrollView.zoomScale = MAX(scaleX, scaleY);
+                break;
+                
+            default: // minimal
+                self.focusViewController.scrollView.zoomScale = self.focusViewController.scrollView.minimumZoomScale;
+                break;
+        }
+        
     }
 }
 
@@ -200,7 +217,7 @@ static CGFloat const kAnimationDuration = 0.5;
     ASMediaFocusController *focusViewController;
     CGPoint center;
     UIView *mediaView;
-    UIView *imageView;
+    UIImageView *imageView;
     
     mediaView = gesture.view;
     focusViewController = [self focusViewControllerForView:mediaView];
@@ -253,6 +270,7 @@ static CGFloat const kAnimationDuration = 0.5;
                          focusViewController.view.backgroundColor = self.backgroundColor;
                      }
                      completion:^(BOOL finished) {
+                         
                          if(self.elasticAnimation)
                          {
                              [UIView animateWithDuration:self.animationDuration*kAnimateElasticDurationRatio
@@ -262,6 +280,7 @@ static CGFloat const kAnimationDuration = 0.5;
                                               completion:^(BOOL finished) {
                                                   [self installZoomView];
                                                   self.isZooming = NO;
+
                                               }];
                          }
                          else
