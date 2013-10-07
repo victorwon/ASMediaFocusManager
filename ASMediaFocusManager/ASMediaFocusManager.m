@@ -60,6 +60,7 @@ static CGFloat const kAnimationDuration = 0.5;
         self.isZooming = NO;
         self.gestureDisabledDuringZooming = YES;
         self.isDefocusingWithTap = NO;
+        self.doneButtonFont = [UIFont fontWithName:@"HelveticaNeue" size:18];
     }
     
     return self;
@@ -110,7 +111,7 @@ static CGFloat const kAnimationDuration = 0.5;
     if(image == nil)
         return nil;
 
-    viewController = [[ASMediaFocusController alloc] initWithNibName:nil bundle:nil];
+    viewController = [[ASMediaFocusController alloc] init];
     [self installDefocusActionOnFocusViewController:viewController];
     viewController.titleLabel.text = [self.delegate mediaFocusManager:self titleForView:mediaView];
     viewController.mainImageView.image = image;
@@ -191,6 +192,7 @@ static CGFloat const kAnimationDuration = 0.5;
     
     doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [doneButton setTitle:NSLocalizedString(@"Done", @"Done") forState:UIControlStateNormal];
+    doneButton.titleLabel.font = self.doneButtonFont;
     [doneButton addTarget:self action:@selector(handleDefocusGesture:) forControlEvents:UIControlEventTouchUpInside];
     doneButton.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3];
     [doneButton sizeToFit];

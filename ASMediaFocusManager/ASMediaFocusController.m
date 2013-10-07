@@ -22,6 +22,34 @@ static NSTimeInterval const kDefaultOrientationAnimationDuration = 0.4;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.view.contentMode = UIViewContentModeScaleToFill;
+    self.view.backgroundColor = [UIColor clearColor];
+    self.view.frame = CGRectZero;
+    if (!self.contentView) {
+        self.contentView = [[UIView alloc] initWithFrame:CGRectZero];
+        [self.contentView setBackgroundColor:[UIColor clearColor]];
+        self.contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        self.contentView.contentMode = UIViewContentModeScaleToFill;
+        self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.view addSubview:self.contentView];
+    }
+    if (!self.mainImageView) {
+        self.mainImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        self.mainImageView.contentMode = UIViewContentModeScaleAspectFit;
+        self.mainImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        self.mainImageView.translatesAutoresizingMaskIntoConstraints = NO;
+        self.mainImageView.backgroundColor = [UIColor clearColor];
+        [self.contentView addSubview:self.mainImageView];
+    }
+    if (!self.titleLabel) {
+        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 140, 150, 50)];
+        self.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+        self.titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+        self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        self.titleLabel.backgroundColor = [UIColor clearColor];
+        [self.contentView addSubview:self.titleLabel];
+    }
     self.titleLabel.layer.shadowOpacity = 1;
     self.titleLabel.layer.shadowOffset = CGSizeZero;
     self.titleLabel.layer.shadowRadius = 1;

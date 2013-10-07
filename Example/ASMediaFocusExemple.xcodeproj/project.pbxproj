@@ -32,7 +32,6 @@
 		4ABF0AF216A048E50053040A /* ASMediaThumbnailsViewController~iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ABF0AF016A048E50053040A /* ASMediaThumbnailsViewController~iphone.xib */; };
 		4ABF0B0516A0575C0053040A /* ASMediaFocusController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABF0B0216A0575C0053040A /* ASMediaFocusController.m */; };
 		4ABF0B0616A0575C0053040A /* ASMediaFocusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABF0B0416A0575C0053040A /* ASMediaFocusManager.m */; };
-		4ABF0B1916A2E62E0053040A /* ASMediaFocusController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ABF0B1816A2E62E0053040A /* ASMediaFocusController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,7 +69,6 @@
 		4ABF0B0216A0575C0053040A /* ASMediaFocusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMediaFocusController.m; sourceTree = "<group>"; };
 		4ABF0B0316A0575C0053040A /* ASMediaFocusManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMediaFocusManager.h; sourceTree = "<group>"; };
 		4ABF0B0416A0575C0053040A /* ASMediaFocusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMediaFocusManager.m; sourceTree = "<group>"; };
-		4ABF0B1816A2E62E0053040A /* ASMediaFocusController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASMediaFocusController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,7 +191,6 @@
 				4ABF0B0216A0575C0053040A /* ASMediaFocusController.m */,
 				4ABF0B0316A0575C0053040A /* ASMediaFocusManager.h */,
 				4ABF0B0416A0575C0053040A /* ASMediaFocusManager.m */,
-				4ABF0B1816A2E62E0053040A /* ASMediaFocusController.xib */,
 				4A2D149C16AD255800D3CE3D /* ASImageScrollView.h */,
 				4A2D149D16AD255800D3CE3D /* ASImageScrollView.m */,
 			);
@@ -267,7 +264,6 @@
 				4A15DE7516776EC7004C6733 /* 4.jpg in Resources */,
 				4A7F15F31684635100ADC5D6 /* MainViewController.xib in Resources */,
 				4ABF0AF216A048E50053040A /* ASMediaThumbnailsViewController~iphone.xib in Resources */,
-				4ABF0B1916A2E62E0053040A /* ASMediaFocusController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
