@@ -29,6 +29,9 @@ typedef enum {
 // Returns the title for this media view. Return nil if you don't want any title to appear.
 - (NSString *)mediaFocusManager:(ASMediaFocusManager *)mediaFocusManager titleForView:(UIView *)view;
 
+@optional
+//Called when the view has be dismissed by the 'done' button or by gesture.
+- (void)mediaFocusManagerDidDismiss:(ASMediaFocusManager *)mediaFocusManager;
 @end
 
 
@@ -47,9 +50,10 @@ typedef enum {
 @property (nonatomic, assign) BOOL gestureDisabledDuringZooming;
 // Font for the "Done" button. Defaults to HelveticaNeueu 18px
 @property (nonatomic, strong) UIFont *doneButtonFont;
-
-@property (nonatomic) BOOL isDefocusingWithTap;
 @property (nonatomic) FinalZoomType finalZoomType;
+
+// Returns whether defocuses with tap. Defaults to NO.
+@property (nonatomic) BOOL isDefocusingWithTap;
 
 - (void)installOnViews:(NSArray *)views;
 - (void)installOnView:(UIView *)view;

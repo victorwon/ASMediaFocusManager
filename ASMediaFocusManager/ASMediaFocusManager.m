@@ -19,7 +19,6 @@ static CGFloat const kAnimationDuration = 0.5;
 @property (nonatomic, strong) UIView *mediaView;
 @property (nonatomic, strong) ASMediaFocusController *focusViewController;
 @property (nonatomic) BOOL isZooming;
-
 @end
 
 @implementation ASMediaFocusManager
@@ -328,6 +327,11 @@ static CGFloat const kAnimationDuration = 0.5;
                                               [self.focusViewController.view removeFromSuperview];
                                               [self.focusViewController removeFromParentViewController];
                                               self.focusViewController = nil;
+                                              
+                                              if (self.delegate && [self.delegate respondsToSelector:@selector(mediaFocusManagerDidDismiss:)])
+                                              {
+                                                  [self.delegate mediaFocusManagerDidDismiss:self];
+                                              }
                                           }];
                      }];
 }
