@@ -19,6 +19,11 @@ static NSTimeInterval const kDefaultOrientationAnimationDuration = 0.4;
 
 @implementation ASMediaFocusController
 
+- (BOOL)prefersStatusBarHidden
+{
+    return YES; // sadly this won't work as mediafocus controller is just a child controller, need to implement it in the parent controller
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

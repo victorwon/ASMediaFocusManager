@@ -52,6 +52,9 @@ typedef enum {
 @property (nonatomic, strong) UIFont *doneButtonFont;
 @property (nonatomic) FinalZoomType finalZoomType;
 
+// Focusing rotates the image to landscape even if device is in portrait. zoom will be disabled in this mode. Defaults to NO.
+@property (nonatomic) BOOL isFocusToLandscape;
+
 // Returns whether defocuses with tap. Defaults to NO.
 @property (nonatomic) BOOL isDefocusingWithTap;
 

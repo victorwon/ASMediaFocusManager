@@ -22,6 +22,13 @@ static CGFloat const kAnimationDuration = 0.5;
 @end
 
 @implementation ASMediaFocusManager
+- (void)setIsFocusToLandscape:(BOOL)isFocusToLandscape
+{
+    _isFocusToLandscape = isFocusToLandscape;
+    if (isFocusToLandscape) {
+        _zoomEnabled = NO;
+    }
+}
 
 // Taken from https://github.com/rs/SDWebImage/blob/master/SDWebImage/SDWebImageDecoder.m
 - (UIImage *)decodedImageWithImage:(UIImage *)image
@@ -267,11 +274,13 @@ static CGFloat const kAnimationDuration = 0.5;
                          imageView.frame = initialFrame;
                          imageView.transform = initialTransform;
                          imageView.transform = CGAffineTransformIdentity;
-                         imageView.frame = frame;                         
+                         if (self.isFocusToLandscape && !UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
+                             imageView.transform = CGAffineTransformMakeRotation(-M_PI_2);
+                         }
+                         imageView.frame = frame;
                          focusViewController.view.backgroundColor = self.backgroundColor;
                      }
                      completion:^(BOOL finished) {
-                         
                          if(self.elasticAnimation)
                          {
                              [UIView animateWithDuration:self.animationDuration*kAnimateElasticDurationRatio
@@ -281,7 +290,7 @@ static CGFloat const kAnimationDuration = 0.5;
                                               completion:^(BOOL finished) {
                                                   [self installZoomView];
                                                   self.isZooming = NO;
-
+                                                  
                                               }];
                          }
                          else
@@ -289,6 +298,7 @@ static CGFloat const kAnimationDuration = 0.5;
                              [self installZoomView];
                              self.isZooming = NO;
                          }
+        
                      }];
 }
 
