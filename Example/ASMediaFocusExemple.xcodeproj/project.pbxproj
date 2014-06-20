@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		212EED3A1954857E004D365B /* ASMediaFocusController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212EED391954857E004D365B /* ASMediaFocusController.xib */; };
 		4A15DE2916776BE9004C6733 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A15DE2816776BE9004C6733 /* UIKit.framework */; };
 		4A15DE2B16776BE9004C6733 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A15DE2A16776BE9004C6733 /* Foundation.framework */; };
 		4A15DE2D16776BE9004C6733 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A15DE2C16776BE9004C6733 /* CoreGraphics.framework */; };
@@ -30,11 +31,11 @@
 		4ABF0AF216A048E50053040A /* MainViewController~iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ABF0AF016A048E50053040A /* MainViewController~iphone.xib */; };
 		4ABF0B0516A0575C0053040A /* ASMediaFocusController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABF0B0216A0575C0053040A /* ASMediaFocusController.m */; };
 		4ABF0B0616A0575C0053040A /* ASMediaFocusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABF0B0416A0575C0053040A /* ASMediaFocusManager.m */; };
-		4ABF0B1916A2E62E0053040A /* ASMediaFocusController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ABF0B1816A2E62E0053040A /* ASMediaFocusController.xib */; };
 		4AFDA6AA18C7179B00A1D0C4 /* ASTransparentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFDA6A918C7179B00A1D0C4 /* ASTransparentView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		212EED391954857E004D365B /* ASMediaFocusController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASMediaFocusController.xib; sourceTree = "<group>"; };
 		4A15DE2416776BE9004C6733 /* ASMediaFocusExemple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ASMediaFocusExemple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A15DE2816776BE9004C6733 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4A15DE2A16776BE9004C6733 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -66,7 +67,6 @@
 		4ABF0B0216A0575C0053040A /* ASMediaFocusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMediaFocusController.m; sourceTree = "<group>"; };
 		4ABF0B0316A0575C0053040A /* ASMediaFocusManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMediaFocusManager.h; sourceTree = "<group>"; };
 		4ABF0B0416A0575C0053040A /* ASMediaFocusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMediaFocusManager.m; sourceTree = "<group>"; };
-		4ABF0B1816A2E62E0053040A /* ASMediaFocusController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASMediaFocusController.xib; sourceTree = "<group>"; };
 		4AFDA6A818C7179B00A1D0C4 /* ASTransparentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTransparentView.h; sourceTree = "<group>"; };
 		4AFDA6A918C7179B00A1D0C4 /* ASTransparentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTransparentView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -184,6 +184,7 @@
 		4ABF0B0016A0575C0053040A /* ASMediaFocusManager */ = {
 			isa = PBXGroup;
 			children = (
+				212EED391954857E004D365B /* ASMediaFocusController.xib */,
 				4ABF0B0116A0575C0053040A /* ASMediaFocusController.h */,
 				4ABF0B0216A0575C0053040A /* ASMediaFocusController.m */,
 				4ABF0B0316A0575C0053040A /* ASMediaFocusManager.h */,
@@ -261,8 +262,8 @@
 				4A15DE7216776EC7004C6733 /* 1.jpg in Resources */,
 				4A15DE7316776EC7004C6733 /* 2.jpg in Resources */,
 				4A15DE7416776EC7004C6733 /* 3.jpg in Resources */,
+				212EED3A1954857E004D365B /* ASMediaFocusController.xib in Resources */,
 				4ABF0AF216A048E50053040A /* MainViewController~iphone.xib in Resources */,
-				4ABF0B1916A2E62E0053040A /* ASMediaFocusController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
