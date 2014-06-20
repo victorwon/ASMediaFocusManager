@@ -14,7 +14,16 @@ Works on iPhone and iPad.
 ## Orientation
 The focused view is automatically adapted to the screen orientation even if your main view controller is portrait only.
 
-Because orientation management is different between iOS 5 and 6, this class is for iOS 6 only (although it should not be hard to adapt it to iOS 5).
+Because orientation management was different on iOS 5, this class does not work on iOS 5 and below (although it should not be hard to adapt it).
+## Image content modes
+For now, only `UIViewContentModeScaleAspectFit` and `UIViewContentModeScaleAspectFill` are supported, but these modes are the most widely used.
+
+In case of `UIViewContentModeScaleAspectFill`, the view is expanded in order to show the image in full.
+
+![](https://github.com/autresphere/ASMediaFocusManager/raw/master/Screenshots/videoAspectFill.gif) 
+
+If you want other content modes to be supported, please drop me a line. You can even try a pull request, which would be much appreciated!
+
 ## Use It
 Add `pod 'ASMediaFocusManager'` to your Podfile or copy the whole `ASMediaFocusManager` folder in your project.
 
@@ -40,11 +49,10 @@ In your View Controller where some image views need focus feature, add this code
 Here is an example of a delegate implementation. Please adapt the code to your context.
 ```objc
 #pragma mark - ASMediaFocusDelegate
-// Returns an image that represents the media view. This image is used in the focusing animation view.
-// It is usually a small image.
-- (UIImage *)mediaFocusManager:(ASMediaFocusManager *)mediaFocusManager imageForView:(UIView *)view
+// Returns an image view that represents the media view. This image from this view is used in the focusing animation view. It is usually a small image.
+- (UIImageView *)mediaFocusManager:(ASMediaFocusManager *)mediaFocusManager imageViewForView:(UIView *)view;
 {
-    return ((UIImageView *)view).image;
+    return (UIImageView *)view;
 }
 
 // Returns the final focused frame for this media view. This frame is usually a full screen frame.
@@ -94,12 +102,41 @@ Here is the things you can configure:
 * enable/disable zooming by pinch
 * close focused view either by tap or through a "Done" button
 
+### Hiding the status bar
+On iOS 7, if you want to hide or show the status bar when a view is focused or defocused, you can use optional delegate methods `[ASMediaFocusManager mediaFocusManagerWillAppear:]` and `[ASMediaFocusManager mediaFocusManagerWillDisappear:]`.
+
+Here is an example on how to hide and show the status bar. As the delegate methods are called inside an animation block, the status bar will be hidden or shown with animation.
+```objc
+- (void)mediaFocusManagerWillAppear:(ASMediaFocusManager *)mediaFocusManager
+{
+    self.statusBarHidden = YES;
+	[self setNeedsStatusBarAppearanceUpdate];
+}
+
+- (void)mediaFocusManagerWillDisappear:(ASMediaFocusManager *)mediaFocusManager
+{
+    self.statusBarHidden = NO;
+    [self setNeedsStatusBarAppearanceUpdate];
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return self.statusBarHidden;
+}
+
+// statusBarHidden is defined as a property.
+@property (nonatomic, assign) BOOL statusBarHidden;
+
+```
+
+
 ##Todo
-* Fix image jump on orientation change when fullscreen image is zoomed
+* Fix image jump on orientation change when fullscreen image is zoomed (only when parent ViewController supports UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskPortraitUpsideDown)
 * Improve the elastic (ie natural) effect on focus and defocus rotation.
 * Support movie media.
 * Close focus view by vertical swipe like in facebook app.
 * Media browsing by horizontal swipe in fullscreen.
+* ~~Hide accessory views (button and label) when view is zoomed.~~ (March 5, 2014)
 
 ## ARC
 ASMediaFocusManager needs ARC.

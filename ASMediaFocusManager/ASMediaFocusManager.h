@@ -18,10 +18,10 @@ typedef enum {
 
 @protocol ASMediasFocusDelegate <NSObject>
 
-// Returns an image that represents the media view. This image is used in the focusing animation view. It is usually a small image.
-- (UIImage *)mediaFocusManager:(ASMediaFocusManager *)mediaFocusManager imageForView:(UIView *)view;
+// Returns an image view that represents the media view. This image from this view is used in the focusing animation view. It is usually a small image.
+- (UIImageView *)mediaFocusManager:(ASMediaFocusManager *)mediaFocusManager imageViewForView:(UIView *)view;
 // Returns the final focused frame for this media view. This frame is usually a full screen frame.
-- (CGRect)mediaFocusManager:(ASMediaFocusManager *)mediaFocusManager finalFrameforView:(UIView *)view;
+- (CGRect)mediaFocusManager:(ASMediaFocusManager *)mediaFocusManager finalFrameForView:(UIView *)view;
 // Returns the view controller in which the focus controller is going to be added. This can be any view controller, full screen or not.
 - (UIViewController *)parentViewControllerForMediaFocusManager:(ASMediaFocusManager *)mediaFocusManager;
 // Returns an URL where the image is stored. This URL is used to create an image at full screen. The URL may be local (file://) or distant (http://).
@@ -30,8 +30,15 @@ typedef enum {
 - (NSString *)mediaFocusManager:(ASMediaFocusManager *)mediaFocusManager titleForView:(UIView *)view;
 
 @optional
-//Called when the view has be dismissed by the 'done' button or by gesture.
-- (void)mediaFocusManagerDidDismiss:(ASMediaFocusManager *)mediaFocusManager;
+// Called when a focus view is about to be shown. For example, you might use this method to hide the status bar.
+- (void)mediaFocusManagerWillAppear:(ASMediaFocusManager *)mediaFocusManager;
+// Called when a focus view has been shown.
+- (void)mediaFocusManagerDidAppear:(ASMediaFocusManager *)mediaFocusManager;
+// Called when the view is about to be dismissed by the 'done' button or by gesture. For example, you might use this method to show the status bar (if it was hidden before).
+- (void)mediaFocusManagerWillDisappear:(ASMediaFocusManager *)mediaFocusManager;
+// Called when the view has be dismissed by the 'done' button or by gesture.
+- (void)mediaFocusManagerDidDisappear:(ASMediaFocusManager *)mediaFocusManager;
+
 @end
 
 
