@@ -55,15 +55,16 @@ typedef enum {
 @property (nonatomic, assign) BOOL zoomEnabled;
 // Returns whether gesture is disabled during zooming. Defaults to YES.
 @property (nonatomic, assign) BOOL gestureDisabledDuringZooming;
-// Font for the "Done" button. Defaults to HelveticaNeueu 18px
-@property (nonatomic, strong) UIFont *doneButtonFont;
-@property (nonatomic) FinalZoomType finalZoomType;
-
-// Focusing rotates the image to landscape even if device is in portrait. zoom will be disabled in this mode. Defaults to NO.
-@property (nonatomic) BOOL isFocusToLandscape;
-
 // Returns whether defocuses with tap. Defaults to NO.
 @property (nonatomic) BOOL isDefocusingWithTap;
+// Font for the "Done" button. Defaults to HelveticaNeueu 18px
+@property (nonatomic, strong) UIFont *doneButtonFont;
+// Defines the zoom style
+@property (nonatomic) FinalZoomType finalZoomType;
+// Focusing rotates the image to landscape even if device is in portrait. zoom will be disabled in this mode. Defaults to NO.
+@property (nonatomic) BOOL isFocusToLandscape;
+// Returns whether the image will be rotated automatically with device rotation. Default YES.
+@property (nonatomic) BOOL allowRotation;
 
 - (void)installOnViews:(NSArray *)views;
 - (void)installOnView:(UIView *)view;

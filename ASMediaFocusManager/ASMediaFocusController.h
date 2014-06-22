@@ -18,6 +18,9 @@
 @property (strong, nonatomic) IBOutlet UIView *accessoryView;
 @property (strong, nonatomic) UITapGestureRecognizer *doubleTapGesture;
 
+// Returns whether the image will be rotated automatically with device rotation. Default YES.
+@property (nonatomic) BOOL allowRotation;
+
 - (void)updateOrientationAnimated:(BOOL)animated;
 - (void)installZoomView;
 - (void)uninstallZoomView;

@@ -103,6 +103,7 @@ static CGFloat const kAnimationDuration = 0.5;
         self.isZooming = NO;
         self.gestureDisabledDuringZooming = YES;
         self.isDefocusingWithTap = NO;
+        self.allowRotation = YES;
         self.doneButtonFont = [UIFont fontWithName:@"HelveticaNeue" size:18];
     }
     
@@ -162,6 +163,7 @@ static CGFloat const kAnimationDuration = 0.5;
     viewController.titleLabel.text = [self.delegate mediaFocusManager:self titleForView:mediaView];
     viewController.mainImageView.image = image;
     viewController.mainImageView.contentMode = imageView.contentMode;
+    viewController.allowRotation = self.allowRotation;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSURL *url;
@@ -353,8 +355,10 @@ static CGFloat const kAnimationDuration = 0.5;
                          imageView.frame = initialFrame;
                          imageView.transform = initialTransform;
                          imageView.transform = CGAffineTransformIdentity;
-                         if (self.isFocusToLandscape && !UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
-                             imageView.transform = CGAffineTransformMakeRotation(-M_PI_2);
+                         if (self.isFocusToLandscape &&
+                             (!self.allowRotation || !UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
+                            ) {
+                             imageView.transform = UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) || [UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeRight? CGAffineTransformMakeRotation(-M_PI_2): CGAffineTransformMakeRotation(M_PI_2);
                          }
                          imageView.frame = frame;
                          focusViewController.view.backgroundColor = self.backgroundColor;

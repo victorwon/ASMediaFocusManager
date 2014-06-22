@@ -24,6 +24,8 @@ static NSTimeInterval const kDefaultOrientationAnimationDuration = 0.4;
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
         self.doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap:)];
         self.doubleTapGesture.numberOfTapsRequired = 2;
+        
+        self.allowRotation = YES;
     }
 
     return self;
@@ -87,6 +89,11 @@ static NSTimeInterval const kDefaultOrientationAnimationDuration = 0.4;
     [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
 }
 
+- (BOOL)shouldAutorotate
+{
+    return self.allowRotation;
+}
+
 - (NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
@@ -127,6 +134,7 @@ static NSTimeInterval const kDefaultOrientationAnimationDuration = 0.4;
     }
     
     if(([UIDevice currentDevice].orientation == UIDeviceOrientationPortrait)
+       || !self.allowRotation
        || [self isParentSupportingInterfaceOrientation:[UIDevice currentDevice].orientation])
     {
         transform = CGAffineTransformIdentity;
